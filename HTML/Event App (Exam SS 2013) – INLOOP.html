@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://inloop.inf.tu-dresden.de/tasks/event-app/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Event App (Exam SS 2013) – INLOOP</title>
+
+  
+  
+
+  
+
+  <style class="anchorjs"></style><link rel="stylesheet" type="text/css" href="./Event App (Exam SS 2013) – INLOOP_files/inloop.min.591085c66e5c.css">
+  
+</head>
+<body class="autolink">
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://inloop.inf.tu-dresden.de/">INLOOP</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+
+  <li><a href="https://inloop.inf.tu-dresden.de/">Home</a></li>
+  <li><a href="https://inloop.inf.tu-dresden.de/accounts/profile/">My Profile</a></li>
+  
+    <li><a href="https://inloop.inf.tu-dresden.de/imprint/">Imprint </a></li>
+  
+  
+  <li><a href="https://inloop.inf.tu-dresden.de/accounts/logout/">Logout</a></li>
+
+
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+
+
+
+<ol class="breadcrumb">
+  <li><a href="https://inloop.inf.tu-dresden.de/tasks/">Tasks</a></li>
+  <li><a href="https://inloop.inf.tu-dresden.de/tasks/category/exam/">Exam</a></li>
+  <li class="active">Event App (Exam SS 2013)</li>
+</ol>
+
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active">
+    <a href="https://inloop.inf.tu-dresden.de/tasks/event-app/">Description</a>
+  </li>
+  <li role="presentation">
+    <a href="https://inloop.inf.tu-dresden.de/tasks/event-app/upload">Manual upload</a>
+  </li>
+  <li role="presentation">
+    <a href="https://inloop.inf.tu-dresden.de/tasks/event-app/solutions">Your solutions</a>
+  </li>
+</ul>
+
+<div class="static-tab-content">
+
+<h1>Event App (Exam SS 2013)</h1>
+<p>In many places, event nights with varying themes take place, e.g., the <em>Lange Nacht der Wissenschaften</em> in Dresden. To make information about event nights accessible, an application for mobile devices has to be created. In this task, we want to focus on an event catalog for such a possible event night application.</p>
+<p>An <code>Event</code> is defined by its <code>title</code> and an <code>EventCategory</code> which can be either an <code>EXHIBITION</code>, a <code>PRESENTATION</code> or a <code>SHOW</code>. Additionally, <code>Event</code> objects can be compared to other <code>Event</code> objects regarding their title (primarily) and their category (secondarily) because the class <code>Event</code> implements <code>java.lang.Comparable&lt;T&gt;</code>.</p>
+<p>The other central data class in this system is <code>Time</code>. Its objects are defined by two <em>valid</em> integers for the hour and minute of a certain point of time. Note that <code>Time</code> is using the 24-hour clock.</p>
+<p>The interface <code>EventCatalog</code> defines methods needed to store and manage events in a manner where an <code>Event</code> is associated with <code>Time</code> objects that represent the times at which the <code>Event</code> takes place. Apply one of the adapter patterns to use the class <code>java.util.TreeMap&lt;K,V&gt;</code> for the actual storage of the data.</p>
+<ul>
+<li><code>addCatalogEntry()</code>: In case the catalog does not contain the <code>Event</code>, adds the <code>Event</code> to the catalog, associates it with the time set and returns <code>true</code>. Otherwise, just returns <code>false</code>. It is important to note that all of the <code>Time</code> objects within the <code>Set</code> must be valid.</li>
+<li><code>addTimeToEvent()</code>: In case the catalog contains the <code>Event</code> and it is not associated to the <code>Time</code>, adds the <code>Time</code> to the <code>Event</code>‘s set and returns <code>true</code> (otherwise <code>false</code>).</li>
+<li><code>getTimesOfEvent()</code>: In case the catalog contains the <code>Event</code>, returns the associated <code>Time</code> <code>Set</code>. Otherwise returns <code>null</code>.</li>
+<li><code>filterByEventCategory()</code>: Returns a non-<code>null</code> <code>Map&lt;Event, Set&lt;Time&gt;</code> containing only those events of the given category.</li>
+<li><code>deleteEvent()</code>: In case the catalog contains the <code>Event</code>, removes it and returns the set of <code>Time</code>s the <code>Event</code> was associated to. Otherwise return <code>null</code>.</li>
+<li><code>deleteTime()</code>: In case the catalog contains the <code>Event</code> and the latter is associated to the <code>Time</code>, removes the association and returns <code>true</code>. Otherwise returns <code>false</code>.</li>
+</ul>
+<h2 id="class-diagram">Class Diagram<a class="anchorjs-link " href="https://inloop.inf.tu-dresden.de/tasks/event-app/#class-diagram" aria-label="Anchor link for: class diagram" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; line-height: 1; padding-left: 0.375em;"></a></h2>
+<p><img alt="Class Diagram" src="./Event App (Exam SS 2013) – INLOOP_files/EventApp_ClassDiagram.png"></p>
+<h2 id="task">Task<a class="anchorjs-link " href="https://inloop.inf.tu-dresden.de/tasks/event-app/#task" aria-label="Anchor link for: task" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; line-height: 1; padding-left: 0.375em;"></a></h2>
+<p>Create the given interface and implement all of the classes above!</p>
+<h2 id="hints">Hints<a class="anchorjs-link " href="https://inloop.inf.tu-dresden.de/tasks/event-app/#hints" aria-label="Anchor link for: hints" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; line-height: 1; padding-left: 0.375em;"></a></h2>
+<ul>
+<li>The most important erroneous parameter values must be handled properly. Therefore, the parameter value <code>null</code> should result in a <code>NullPointerException</code> while others like empty <code>String</code>s or integers that do not make sense should cause an <code>IllegalArgumentException</code>.</li>
+</ul>
+<h2 id="resources">Resources<a class="anchorjs-link " href="https://inloop.inf.tu-dresden.de/tasks/event-app/#resources" aria-label="Anchor link for: resources" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; line-height: 1; padding-left: 0.375em;"></a></h2>
+<ul>
+<li><a href="https://inloop.inf.tu-dresden.de/tasks/event-app/attachments/EventApp_tests.zip">JUnit tests</a></li>
+<li><a href="https://inloop.inf.tu-dresden.de/tasks/event-app/attachments/st_exam_ss13.pdf">Related exam task</a></li>
+</ul>
+
+</div>
+
+
+</div>
+
+<script src="./Event App (Exam SS 2013) – INLOOP_files/inloop.min.d60b28797d10.js"></script>
+
+
+
+
+</body></html>
