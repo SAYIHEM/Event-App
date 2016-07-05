@@ -46,7 +46,7 @@ public class EventCatalogImplTest {
         times.add(Arrays.asList(new Time(14, 15), new Time(16, 45), new Time(19, 15)));
         times.add(Arrays.asList(new Time(10, 00), new Time(12, 40), new Time(14, 00)));
         times.add(Arrays.asList(new Time(11, 10), new Time(13, 30), new Time(16, 10)));
-        times.add(Arrays.asList());
+        times.add(Arrays.<Time>asList());
         times.add(Arrays.asList(new Time(11, 45), new Time(12, 45), new Time(13, 45)));
         times.add(Arrays.asList(new Time(17, 20), new Time(18, 50), new Time(20, 15)));
 

@@ -9,11 +9,11 @@ public class Time {
 
     public Time(int hour, int minute) throws IllegalArgumentException{
 
-        if (hour < 0 || hour > 24){
+        if (hour < 0 || hour > 23){
             throw new IllegalArgumentException("Day only has 24 hours!");
         }
 
-        if (minute < 0 || minute > 60){
+        if (minute < 0 || minute > 59){
             throw new IllegalArgumentException("Hour only has 60 minutes");
         }
 
