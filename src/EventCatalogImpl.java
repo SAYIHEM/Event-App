@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -18,6 +19,12 @@ public class EventCatalogImpl implements EventCatalog {
             throw new NullPointerException("Event or TimeSet cannot be NULL!");
         }
 
+        for (Iterator<Time> it = tSet.iterator(); it.hasNext();){
+
+            if (it.next() == null){
+                throw new NullPointerException("Elements of TimeSet cannot be NULL!");
+            }
+        }
 
         if (this.allEvents.containsKey(e)){
 
@@ -36,9 +43,10 @@ public class EventCatalogImpl implements EventCatalog {
             throw new NullPointerException("Event or Time cannot be NULL!");
         }
 
-        if (this.allEvents.containsKey(e) && this.allEvents.get(e) == null){
+        Set<Time> timeSet = this.allEvents.get(e);
 
-            Set<Time> timeSet = this.allEvents.get(e);
+        if (this.allEvents.containsKey(e) && !timeSet.contains(t)){
+
             timeSet.add(t);
             this.allEvents.put(e, timeSet);
 
@@ -74,7 +82,17 @@ public class EventCatalogImpl implements EventCatalog {
         if (category == null){
             throw new NullPointerException("Category cannot be NULL");
         }
-        //unvollständig
+
+        Map<Event, Set<Time>> filteredMap = new TreeMap<Event, Set<Time>>();
+
+        Set<Event> KeySet = this.allEvents.keySet();
+        Set<Event> // In Set einsortieren und ausgeben
+
+        for (Iterator<Event> it = KeySet.iterator(); it.hasNext();){
+
+
+        }
+
         return null;
     }
 
@@ -93,10 +111,12 @@ public class EventCatalogImpl implements EventCatalog {
             throw new NullPointerException("Event or Time cannot be NULL!");
         }
 
-        if (this.allEvents.containsKey(e)){
+        Set<Time> timeSet = this.allEvents.get(e);
 
-            this.allEvents.remove(e);
-            this.allEvents.put(e, null);
+        if (this.allEvents.containsKey(e) && timeSet.contains(t)){
+
+            timeSet.remove(t);
+            this.allEvents.put(e, timeSet);
 
             return true;
         }
