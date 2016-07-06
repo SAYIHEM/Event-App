@@ -31,16 +31,30 @@ public class Event implements Comparable<Event>{
         return this.category;
     }
 
-    // noch nicht vollständig
     public int compareTo(Event o) {
 
-        if (this.title == o.title){
+        if (this.title.compareTo(o.title) > 0){
 
-            if (this.category == o.category){
+            return 1;
+       }
+        else if (this.title.compareTo(o.title) < 0){
+
+            return -1;
+        }
+        else {
+
+            if (this.category.toString().compareTo(o.category.toString()) > 0){
+
+                return 1;
+            }
+            else if (this.category.toString().compareTo(o.category.toString()) < 0){
+
+                return -1;
+            }
+            else {
 
                 return 0;
             }
         }
-        return 0;
     }
 }
