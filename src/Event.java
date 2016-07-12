@@ -57,4 +57,9 @@ public class Event implements Comparable<Event>{
             }
         }
     }
+
+    public String toString(){
+
+        return this.title + "[" + this.category.toString() + "]";
+    }
 }

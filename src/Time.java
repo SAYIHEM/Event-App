@@ -30,4 +30,9 @@ public class Time {
 
         return Integer.parseInt(this.minute);
     }
+
+    public String toString(){
+
+        return this.hour + ":" + this.minute;
+    }
 }
