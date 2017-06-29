@@ -1,10 +1,7 @@
 import sun.security.krb5.internal.KdcErrException;
 
 import java.lang.reflect.Array;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 
 public class EventCatalogImpl implements EventCatalog {
@@ -86,16 +83,13 @@ public class EventCatalogImpl implements EventCatalog {
             throw new NullPointerException("Category cannot be NULL");
         }
 
-        Map<Event, Set<Time>> filteredMap = this.allEvents;
+        Map<Event, Set<Time>> filteredMap = new HashMap<>();
 
-        Set<Event> KeySet = this.allEvents.keySet();
-        Event[] KeySetArray = KeySet.toArray(new Event[KeySet.size()]);
+        for (Map.Entry<Event, Set<Time>> entry : this.allEvents.entrySet()) {
 
-        for (int i = 0; i < KeySetArray.length; i++){
+            if (entry.getKey().getCategory() == category) {
 
-            if (KeySetArray[i].getCategory() != category){
-
-                filteredMap.remove(KeySetArray[i]);
+                filteredMap.put(entry.getKey(), entry.getValue());
             }
         }
 
